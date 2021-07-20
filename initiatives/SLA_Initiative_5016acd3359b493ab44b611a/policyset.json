@@ -1,0 +1,309 @@
+{
+ "properties": {
+  "displayName": "SLA Initiative",
+  "policyType": "Custom",
+  "description": "SLA Initiative that deploys all policies needed",
+  "metadata": {
+   "category": "Monitoring",
+   "parameterScopes": {
+    "logAnalytics": "/subscriptions/c1319338-2a94-4cd5-a59a-e7233cf51c0e",
+    "eventHubName": "/subscriptions/c1319338-2a94-4cd5-a59a-e7233cf51c0e",
+    "eventHubRuleId": "/subscriptions/c1319338-2a94-4cd5-a59a-e7233cf51c0e",
+    "resourceGroupLocation": "/subscriptions/c1319338-2a94-4cd5-a59a-e7233cf51c0e",
+    "eventHubDetails": "/subscriptions/c1319338-2a94-4cd5-a59a-e7233cf51c0e"
+   },
+   "createdBy": "f8626d05-252f-4e46-8b6e-d6af4a5d600f",
+   "createdOn": "2021-07-20T14:34:54.2428711Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "logAnalytics": {
+    "type": "string",
+    "metadata": {
+     "displayName": "logAnalytics",
+     "description": "The Log Analytics Workspace Name to which certain logs will be saved"
+    }
+   },
+   "eventHubNamespace": {
+    "type": "string",
+    "metadata": {
+     "displayName": "eventHubNamespace",
+     "description": "The eventHub Namespace Name to which certain logs will be saved"
+    }
+   },
+   "eventHubRuleId": {
+    "type": "string",
+    "metadata": {
+     "displayName": "eventHubRuleId",
+     "description": "The eventHub RuleId to which certain logs will be saved - it has to be in the following format: \"/subscriptions/$subscriptionID/resourceGroups/$eventHubRG/providers/Microsoft.EventHub/namespaces/$eventHubNamespace/authorizationrules/$eventHubAuthorizationRule\""
+    }
+   },
+   "eventHubRG": {
+    "type": "string",
+    "metadata": {
+     "displayName": "eventHubRG",
+     "description": "The Resource Group of the eventHub to which logs will be saved"
+    }
+   },
+   "eventHubRGLocation": {
+    "type": "string",
+    "metadata": {
+     "displayName": "eventHubRGLocation",
+     "description": "The Resource Group location of the eventHub to which logs will be saved"
+    }
+   }
+  },
+  "policyDefinitions": [
+   {
+    "policyDefinitionReferenceId": "Enable Diagnostics - Activity Log - send to central Log Analytics and Event Hub_1",
+    "policyDefinitionId": "/subscriptions/c1319338-2a94-4cd5-a59a-e7233cf51c0e/providers/Microsoft.Authorization/policyDefinitions/diagnostics-activitylog-deploy",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     },
+     "eventHubName": {
+      "value": "[parameters('eventHubNamespace')]"
+     },
+     "eventHubRuleId": {
+      "value": "[parameters('eventHubRuleId')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Enable Diagnostics - API Management - send to central Log Analytics_1",
+    "policyDefinitionId": "/subscriptions/c1319338-2a94-4cd5-a59a-e7233cf51c0e/providers/Microsoft.Authorization/policyDefinitions/diagnostics-apimanagement-deploy",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Enable Diagnostics - App Services - send to central Log Analytics and Event Hub_1",
+    "policyDefinitionId": "/subscriptions/c1319338-2a94-4cd5-a59a-e7233cf51c0e/providers/Microsoft.Authorization/policyDefinitions/diagnostics-appservice-deploy",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     },
+     "eventHubName": {
+      "value": "[parameters('eventHubNamespace')]"
+     },
+     "eventHubRuleId": {
+      "value": "[parameters('eventHubRuleId')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Enable Diagnostics - Automation Accounts - send to central Log Analytics_1",
+    "policyDefinitionId": "/subscriptions/c1319338-2a94-4cd5-a59a-e7233cf51c0e/providers/Microsoft.Authorization/policyDefinitions/diagnostics-automationaccounts-deploy",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Enable Diagnostics - CosmosDB - send to central Log Analytics_1",
+    "policyDefinitionId": "/subscriptions/c1319338-2a94-4cd5-a59a-e7233cf51c0e/providers/Microsoft.Authorization/policyDefinitions/diagnostics-cosmosdb-deploy",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Enable Diagnostics - Data Lake Store - send to central Log Analytics_1",
+    "policyDefinitionId": "/subscriptions/c1319338-2a94-4cd5-a59a-e7233cf51c0e/providers/Microsoft.Authorization/policyDefinitions/diagnostics-datalakestore-deploy",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Enable Diagnostics - Logic App Integration Accounts - send to central Log Analytics_1",
+    "policyDefinitionId": "/subscriptions/c1319338-2a94-4cd5-a59a-e7233cf51c0e/providers/Microsoft.Authorization/policyDefinitions/diagnostics-logicappintegrationaccs-deploy",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Enable Diagnostics - Logic App Workflows - send to central Log Analytics_1",
+    "policyDefinitionId": "/subscriptions/c1319338-2a94-4cd5-a59a-e7233cf51c0e/providers/Microsoft.Authorization/policyDefinitions/diagnostics-logicappworkflows-deploy",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Enable Diagnostics - Redis Cache - send to central Log Analytics_1",
+    "policyDefinitionId": "/subscriptions/c1319338-2a94-4cd5-a59a-e7233cf51c0e/providers/Microsoft.Authorization/policyDefinitions/diagnostics-redis-deploy",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Enable Diagnostics - SQL Managed Instance - send to central Log Analytics_1",
+    "policyDefinitionId": "/subscriptions/c1319338-2a94-4cd5-a59a-e7233cf51c0e/providers/Microsoft.Authorization/policyDefinitions/diagnostics-sqlmi-deploy",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Enable Diagnostics - SQL Managed Instance Databases - send to central Log Analytics_1",
+    "policyDefinitionId": "/subscriptions/c1319338-2a94-4cd5-a59a-e7233cf51c0e/providers/Microsoft.Authorization/policyDefinitions/diagnostics-sqlmidbs-deploy",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Deploy Log analytics Auditing Settings to Event Hub_1",
+    "policyDefinitionId": "/subscriptions/c1319338-2a94-4cd5-a59a-e7233cf51c0e/providers/Microsoft.Authorization/policyDefinitions/loganalytics-auditing-eventhub-deploy",
+    "parameters": {
+     "eventHubName": {
+      "value": "[parameters('eventHubNamespace')]"
+     },
+     "eventHubRuleId": {
+      "value": "[parameters('eventHubRuleId')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Enable Auditing - SQL Managed Instance - send to central Log Analytics and Event Hub_1",
+    "policyDefinitionId": "/subscriptions/c1319338-2a94-4cd5-a59a-e7233cf51c0e/providers/Microsoft.Authorization/policyDefinitions/auditing-sqlmi-deploy",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     },
+     "eventHubName": {
+      "value": "[parameters('eventHubNamespace')]"
+     },
+     "eventHubRuleId": {
+      "value": "[parameters('eventHubRuleId')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Enable Auditing - SQL Server - send to central Log Analytics and Event Hub_1",
+    "policyDefinitionId": "/subscriptions/c1319338-2a94-4cd5-a59a-e7233cf51c0e/providers/Microsoft.Authorization/policyDefinitions/auditing-sqlserver-deploy",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     },
+     "eventHubName": {
+      "value": "[parameters('eventHubNamespace')]"
+     },
+     "eventHubRuleId": {
+      "value": "[parameters('eventHubRuleId')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Deploy Azure Security Center Pricing Tier_1",
+    "policyDefinitionId": "/subscriptions/c1319338-2a94-4cd5-a59a-e7233cf51c0e/providers/Microsoft.Authorization/policyDefinitions/turn-on-azure-defender",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Deploy Diagnostic Settings for Data Lake Analytics to Log Analytics workspace_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/d56a5a7c-72d7-42bc-8ceb-3baf4c0eae03",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Deploy Diagnostic Settings for Key Vault to Event Hub_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ed7c8c13-51e7-49d1-8a43-8490431a0da2",
+    "parameters": {
+     "eventHubRuleId": {
+      "value": "[parameters('eventHubNamespace')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Deploy Diagnostic Settings for Logic Apps to Log Analytics workspace_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b889a06c-ec72-4b03-910a-cb169ee18721",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Deploy - Configure diagnostic settings for SQL Databases to Log Analytics workspace_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b79fa14e-238a-4c2d-b376-442ce508fc84",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Deploy Diagnostic Settings for Azure SQL Database to Event Hub_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/9a7c7a7d-49e5-4213-bea8-6a502b6272e0",
+    "parameters": {
+     "eventHubRuleId": {
+      "value": "[parameters('eventHubNamespace')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Deploy Advanced Data Security on SQL servers_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6134c3db-786f-471e-87bc-8f479dc890f6",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Deploy export to Event Hub for Azure Security Center data_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cdfcce10-4578-4ecd-9703-530938e4abcb",
+    "parameters": {
+     "resourceGroupName": {
+      "value": "[parameters('eventHubRG')]"
+     },
+     "resourceGroupLocation": {
+      "value": "[parameters('eventHubRGLocation')]"
+     },
+     "eventHubDetails": {
+      "value": "[parameters('eventHubRuleId')]"
+     }
+    },
+    "groupNames": []
+   }
+  ],
+  "policyDefinitionGroups": []
+ },
+ "id": "/subscriptions/c1319338-2a94-4cd5-a59a-e7233cf51c0e/providers/Microsoft.Authorization/policySetDefinitions/5016acd3359b493ab44b611a",
+ "type": "Microsoft.Authorization/policySetDefinitions",
+ "name": "5016acd3359b493ab44b611a"
+}
